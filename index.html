@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>nexaOS — Fake OS</title>
+  <title>NexaOS</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -29,10 +29,10 @@
   </svg>
 
   <!-- Desktop UI -->
-  <main id="desktop" role="application" aria-label="nexaOS desktop">
+  <main id="desktop" role="application" aria-label="NexaOS desktop">
     <header id="topbar">
       <button id="start-button" aria-haspopup="true" aria-expanded="false" title="Start menu">
-        <span class="start-logo">nexaOS</span>
+        <span class="start-logo">NexaOS</span>
       </button>
       <div id="topbar-center" aria-hidden="true"></div>
       <div id="topbar-right" aria-hidden="true">
@@ -67,7 +67,7 @@
     <!-- Start menu -->
     <aside id="start-menu" hidden role="menu" aria-label="Start menu">
       <div class="start-header">
-        <div class="start-logo-large">nexaOS</div>
+        <div class="start-logo-large">NexaOS</div>
         <div class="start-sub">Night edition</div>
       </div>
       <ul class="start-list" role="none">
@@ -75,13 +75,13 @@
         <li role="none"><button role="menuitem" data-app="files">Files</button></li>
         <li role="none"><button role="menuitem" data-app="browser">Browser</button></li>
       </ul>
-      <div class="start-footer">v0.1 — fake OS demo</div>
+      <div class="start-footer">v0.1 — demo</div>
     </aside>
 
     <!-- Terminal window -->
     <section class="window" id="terminal-window" role="dialog" aria-label="Terminal window" hidden>
       <div class="titlebar">
-        <div class="title">Terminal — nexaOS</div>
+        <div class="title">Terminal — NexaOS</div>
         <div class="controls">
           <button class="minimize" title="Minimize">—</button>
           <button class="close" title="Close">✕</button>
@@ -90,7 +90,7 @@
       <div class="window-body">
         <pre id="term-output" class="terminal" aria-live="polite"></pre>
         <div class="term-input">
-          <span class="prompt">guest@nexaOS:~$</span>
+          <span class="prompt">guest@NexaOS:~$</span>
           <input id="term-input-box" aria-label="Terminal input" placeholder="type 'help'"/>
         </div>
       </div>
@@ -99,7 +99,7 @@
     <!-- Files window (simple placeholder) -->
     <section class="window" id="files-window" role="dialog" aria-label="Files window" hidden>
       <div class="titlebar">
-        <div class="title">Files — nexaOS</div>
+        <div class="title">Files — NexaOS</div>
         <div class="controls">
           <button class="minimize">—</button>
           <button class="close">✕</button>
@@ -117,7 +117,7 @@
     <!-- Browser window -->
     <section class="window" id="browser-window" role="dialog" aria-label="Browser window" hidden>
       <div class="titlebar">
-        <div class="title">Browser — nexaOS</div>
+        <div class="title">Browser — NexaOS</div>
         <div class="controls">
           <button class="minimize" title="Minimize">—</button>
           <button class="close" title="Close">✕</button>
@@ -125,11 +125,12 @@
       </div>
       <div class="window-body">
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
-          <input id="browser-address" placeholder="http://localhost:8080" style="flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;"/>
+          <input id="browser-address" placeholder="http://example.com" style="flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;"/>
           <button id="browser-go" style="padding:8px 10px;border-radius:8px;border:none;background:rgba(79,195,247,0.12);color:var(--accent);cursor:pointer;">Go</button>
         </div>
         <div style="height:520px;background:linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.3));border-radius:8px;overflow:hidden;">
-          <iframe id="browser-iframe" src="http://localhost:8080" style="width:100%;height:100%;border:0;background:white;" title="nexaOS browser"></iframe>
+          <!-- The iframe loads the local proxy on port 8080 which acts as the browser backend -->
+          <iframe id="browser-iframe" src="http://localhost:8080/" style="width:100%;height:100%;border:0;background:white;" title="NexaOS browser"></iframe>
         </div>
       </div>
     </section>
