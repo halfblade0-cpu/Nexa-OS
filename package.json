@@ -1,0 +1,15 @@
+{
+  "name": "nexaos",
+  "version": "0.1.0",
+  "description": "Fake nexaOS demo site with in-app browser and local example server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "halfblade0-cpu",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

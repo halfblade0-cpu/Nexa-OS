@@ -52,7 +52,7 @@
   function openApp(app){
     if(app === 'terminal') openTerminal();
     if(app === 'files') openFiles();
-    if(app === 'browser') alert('This is a fake demo browser. Replace with your own app.');
+    if(app === 'browser') openBrowser();
   }
 
   $$('#icons .icon, .dock-item, #start-menu button').forEach(btn=>{
@@ -155,6 +155,43 @@
   if(filesWindow){
     makeDraggable(filesWindow);
     wireControls(filesWindow);
+  }
+
+  // Browser window
+  const browserWindow = $('#browser-window');
+  const browserIframe = $('#browser-iframe');
+  const browserAddress = $('#browser-address');
+  const browserGo = $('#browser-go');
+
+  function openBrowser(url){
+    browserWindow.hidden = false;
+    browserWindow.style.display = '';
+    browserWindow.style.left = '50%';
+    browserWindow.style.top = '52%';
+    browserWindow.style.transform = 'translate(-50%,-50%)';
+    browserWindow.style.zIndex = 20;
+    const target = url || (browserAddress && browserAddress.value) || 'http://localhost:8080';
+    if(browserAddress) browserAddress.value = target;
+    if(browserIframe) browserIframe.src = target;
+  }
+
+  if(browserWindow){
+    makeDraggable(browserWindow);
+    wireControls(browserWindow);
+  }
+
+  if(browserGo){
+    browserGo.addEventListener('click', ()=>{
+      const url = (browserAddress.value || '').trim();
+      if(!url) return;
+      // basic validation: add protocol if missing
+      const normalized = url.match(/^https?:\/\//) ? url : `http://${url}`;
+      if(browserIframe) browserIframe.src = normalized;
+      browserAddress.value = normalized;
+    });
+    browserAddress && browserAddress.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter') browserGo.click();
+    });
   }
 
   // Terminal input handling (very small demo commands)
