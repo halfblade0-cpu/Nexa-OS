@@ -1,6 +1,4 @@
-# nexaOS — Fake Operating System Demo
 
-This repository contains a small, single-page "fake operating system" called **nexaOS** with a black mountain silhouette and a night sky background. It now includes an in-app browser that defaults to loading http://localhost:8080 and a tiny example server that runs on port 8080.
 
 What you'll find:
 - `index.html` — main demo page (desktop, dock, start menu, windows).
